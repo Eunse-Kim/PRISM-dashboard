@@ -231,6 +231,18 @@ def load_data():
     if os.path.exists(DATA_FILE):
         try:
             df = pd.read_excel(DATA_FILE)
+
+            BIOLOGICS_LIST = ["오말리주맙", "메폴리주맙", "레즐리주맙", "테제펠루맙", "듀필루맙"]
+
+            import random
+            
+            patient_drug_map = {
+                pid: random.choice(BIOLOGICS_LIST)
+                for pid in df['PatientID'].unique()
+            }
+            
+            df['Biologics'] = df['PatientID'].map(patient_drug_map)
+
             # 필수 컬럼 확인
             required_cols = ["Project", "PatientID", "Visit", "Omics", "Tissue", "SampleID", "Date", "Biologics"]
             if not all(col in df.columns for col in required_cols):
