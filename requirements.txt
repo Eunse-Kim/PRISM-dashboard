@@ -1,0 +1,8 @@
+streamlit
+streamlit-option-menu
+pandas
+numpy
+openpyxl
+requests
+schedule
+Pillow
