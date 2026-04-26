@@ -39,7 +39,7 @@ USER_FILE = "data/users.json"
 VALID_VISITS = ["Visit 1", "Visit 2", "Visit 3", "Visit 4", "Visit 5"]
 VALID_OMICS = ["Bulk Exome RNA-seq", "Bulk Total RNA-seq", "Metabolites", "SNP", "Methylation", "miRNA", "Protein", "scRNA-seq"]
 VALID_TISSUES = ["PAXgene", "PBMC", "Bronchial biopsy", "Nasal cell", "Sputum", "Plasma", "Urine", "Whole blood", "Serum", "Bronchial BAL"]
-VALID_PROJECTS = ["COREA", "PRISM", "PRISMUK"]
+VALID_PROJECTS = ["PRISM"]
 VALID_OMICS_TISSUE = {
     "Bulk Exome RNA-seq": ["PAXgene", "PBMC"],
     "Bulk Total RNA-seq": ["Bronchial biopsy", "Nasal cell", "Sputum"],
@@ -56,7 +56,7 @@ os.makedirs("data", exist_ok=True)
 
 # 페이지 설정
 st.set_page_config(
-    page_title="COREA | PRISM Omics Data Status",
+    page_title="PRISM Omics Data Status",
     page_icon="🧬",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -380,7 +380,7 @@ def get_file_download_link(df, filename, link_text):
 # 페이지 레이아웃
 #############################################
 def login_page():
-    st.markdown('<div class="main-header">COREA | PRISM Omics Data Status</div>', unsafe_allow_html=True)
+    st.markdown('<div class="main-header">PRISM Omics Data Status</div>', unsafe_allow_html=True)
     
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
@@ -441,7 +441,7 @@ def main_page():
         icons_list.append('gear')
    
     with st.sidebar:
-        selected_page = option_menu("COREA | PRISM Omics Data Status", available_pages,
+        selected_page = option_menu("PRISM Omics Data Status", available_pages,
                                     icons = icons_list,
                                     menu_icon = "app-indicator",
                                     default_index = 0,
@@ -450,6 +450,7 @@ def main_page():
         "icon": {"color": "black", "font-size": "25px"}, 
         "nav-link": {"font-size": "16px", "text-align": "left", "margin":"0px", "--hover-color": "#fafafa"}, 
         "nav-link-selected": {"background-color": "#98C1BB"},
+                                        
     })
     
     # selected_page = st.sidebar.selectbox("Menu", available_pages)
@@ -467,7 +468,8 @@ def main_page():
     st.markdown(
         """
         <div class="footer">
-            © 2025 COREA PRISM Omics Data Status | WonLab
+            © 2025 COREA PRISM Omics Data Status | Asan Medical Center <br>
+        Developed by Eunse Kim
         </div>
         """, 
         unsafe_allow_html=True
