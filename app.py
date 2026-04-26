@@ -249,7 +249,7 @@ def load_data():
 
             # Visit 열 변환: "V1" -> "Visit 1", "V2" -> "Visit 2", ...
             if 'Visit' in df.columns:
-                df['Visit'] = df['Visit'].apply(lambda x: 'Visit ' + x[1:] if x.startswith('V') else x)
+                # df['Visit'] = df['Visit'].apply(lambda x: 'Visit ' + x[1:] if x.startswith('V') else x)
         
             # 날짜 형식 변환
             if 'Date' in df.columns:
